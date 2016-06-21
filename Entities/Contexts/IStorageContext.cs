@@ -8,6 +8,14 @@ namespace Entities.Contexts
 {
     public interface IStorageContext<TEntity>
     {
-        IQueryable<TEntity> EntityQuery { get; set; }
+        IQueryable<TEntity> Entities { get; }
+
+        TEntity Add(TEntity entity);
+
+        void Delete(TEntity entity);
+
+        int SaveChanges();
+
+        Task<int> SaveChangesAsync();
     }
 }

@@ -1,7 +1,7 @@
 {
   "runtimeTarget": {
     "name": ".NETFramework,Version=v4.5.2/",
-    "signature": "5a88e6d16f886510d2fac5fdfe0633bdc84733ce"
+    "signature": "3adbd16220e55ceaa33db1e3bc505b822c3fee3e"
   },
   "compilationOptions": {
     "defines": [
@@ -18,6 +18,9 @@
       "WebApi/1.0.0": {
         "dependencies": {
           "Entities": "1.0.0",
+          "Infrastructure": "1.0.0",
+          "FluentValidation.Mvc6": "1.0.0-rc2-20160608",
+          "IdentityServer4": "1.0.0-beta3",
           "Microsoft.ApplicationInsights.AspNetCore": "1.0.0-rc2-final",
           "Microsoft.AspNetCore.Mvc": "1.0.0-rc2-final",
           "Microsoft.AspNetCore.Server.IISIntegration": "1.0.0-rc2-final",
@@ -33,6 +36,34 @@
         },
         "compile": {
           "WebApi.exe": {}
+        }
+      },
+      "FluentValidation.Mvc6/1.0.0-rc2-20160608": {
+        "compile": {
+          "lib/FluentValidation.Mvc6.dll": {},
+          "lib/FluentValidation.Net5.dll": {}
+        }
+      },
+      "IdentityModel/2.0.0-beta3": {
+        "dependencies": {
+          "Newtonsoft.Json": "8.0.4-beta1",
+          "System.Net.Http": "4.0.0.0"
+        },
+        "compile": {
+          "lib/net451/IdentityModel.dll": {}
+        }
+      },
+      "IdentityServer4/1.0.0-beta3": {
+        "dependencies": {
+          "IdentityModel": "2.0.0-beta3",
+          "Microsoft.AspNetCore.Authentication.Cookies": "1.0.0-rc2-final",
+          "Microsoft.AspNetCore.Cors": "1.0.0-rc2-final",
+          "Microsoft.AspNetCore.Http.Abstractions": "1.0.0-rc2-final",
+          "Microsoft.Extensions.DependencyInjection.Abstractions": "1.0.0-rc2-final",
+          "System.IdentityModel.Tokens.Jwt": "5.0.0-rc2-305061149"
+        },
+        "compile": {
+          "lib/net451/IdentityServer4.dll": {}
         }
       },
       "Libuv/1.9.0-rc2-20901": {},
@@ -97,6 +128,30 @@
         },
         "compile": {
           "lib/net451/Microsoft.AspNetCore.Antiforgery.dll": {}
+        }
+      },
+      "Microsoft.AspNetCore.Authentication/1.0.0-rc2-final": {
+        "dependencies": {
+          "Microsoft.AspNetCore.DataProtection": "1.0.0-rc2-final",
+          "Microsoft.AspNetCore.Http": "1.0.0-rc2-final",
+          "Microsoft.AspNetCore.Http.Extensions": "1.0.0-rc2-final",
+          "Microsoft.Extensions.Logging.Abstractions": "1.0.0-rc2-final",
+          "Microsoft.Extensions.Options": "1.0.0-rc2-final",
+          "Microsoft.Extensions.WebEncoders": "1.0.0-rc2-final",
+          "System.Net.Http": "4.0.0.0"
+        },
+        "compile": {
+          "lib/net451/Microsoft.AspNetCore.Authentication.dll": {}
+        }
+      },
+      "Microsoft.AspNetCore.Authentication.Cookies/1.0.0-rc2-final": {
+        "dependencies": {
+          "Microsoft.AspNetCore.Authentication": "1.0.0-rc2-final",
+          "Microsoft.Extensions.Options": "1.0.0-rc2-final",
+          "Microsoft.Extensions.WebEncoders": "1.0.0-rc2-final"
+        },
+        "compile": {
+          "lib/net451/Microsoft.AspNetCore.Authentication.Cookies.dll": {}
         }
       },
       "Microsoft.AspNetCore.Authorization/1.0.0-rc2-final": {
@@ -257,7 +312,7 @@
       "Microsoft.AspNetCore.JsonPatch/1.0.0-rc2-final": {
         "dependencies": {
           "Microsoft.CSharp": "4.0.0.0",
-          "Newtonsoft.Json": "8.0.3",
+          "Newtonsoft.Json": "8.0.4-beta1",
           "System.Collections.Concurrent": "4.0.0.0",
           "System.ComponentModel.TypeConverter": "4.0.1-rc2-24027",
           "System.Diagnostics.Debug": "4.0.0.0",
@@ -416,7 +471,7 @@
           "Microsoft.AspNetCore.Mvc.DataAnnotations": "1.0.0-rc2-final",
           "Microsoft.AspNetCore.Mvc.Formatters.Json": "1.0.0-rc2-final",
           "Microsoft.Extensions.WebEncoders": "1.0.0-rc2-final",
-          "Newtonsoft.Json": "8.0.3",
+          "Newtonsoft.Json": "8.0.4-beta1",
           "System.Buffers": "4.0.0-rc2-24027"
         },
         "compile": {
@@ -604,7 +659,7 @@
         "dependencies": {
           "Microsoft.Extensions.Configuration": "1.0.0-rc2-final",
           "Microsoft.Extensions.Configuration.FileExtensions": "1.0.0-rc2-final",
-          "Newtonsoft.Json": "8.0.3"
+          "Newtonsoft.Json": "8.0.4-beta1"
         },
         "compile": {
           "lib/net451/Microsoft.Extensions.Configuration.Json.dll": {}
@@ -648,7 +703,7 @@
       "Microsoft.Extensions.DependencyModel/1.0.0-rc2-final": {
         "dependencies": {
           "Microsoft.DotNet.InternalAbstractions": "1.0.0-rc2-002702",
-          "Newtonsoft.Json": "8.0.3"
+          "Newtonsoft.Json": "8.0.4-beta1"
         },
         "compile": {
           "lib/net451/Microsoft.Extensions.DependencyModel.dll": {}
@@ -822,6 +877,21 @@
           "lib/netstandard1.0/Microsoft.Extensions.WebEncoders.dll": {}
         }
       },
+      "Microsoft.IdentityModel.Logging/1.0.0-rc2-305061149": {
+        "compile": {
+          "lib/net451/Microsoft.IdentityModel.Logging.dll": {}
+        }
+      },
+      "Microsoft.IdentityModel.Tokens/5.0.0-rc2-305061149": {
+        "dependencies": {
+          "Microsoft.IdentityModel.Logging": "1.0.0-rc2-305061149",
+          "Newtonsoft.Json": "8.0.4-beta1",
+          "System.Xml": "4.0.0.0"
+        },
+        "compile": {
+          "lib/net451/Microsoft.IdentityModel.Tokens.dll": {}
+        }
+      },
       "Microsoft.Net.Http.Headers/1.0.0-rc2-final": {
         "dependencies": {
           "System.Buffers": "4.0.0-rc2-24027",
@@ -837,7 +907,7 @@
           "lib/netstandard1.1/Microsoft.Net.Http.Headers.dll": {}
         }
       },
-      "Newtonsoft.Json/8.0.3": {
+      "Newtonsoft.Json/8.0.4-beta1": {
         "compile": {
           "lib/net45/Newtonsoft.Json.dll": {}
         }
@@ -914,6 +984,14 @@
       "System.Globalization/4.0.0.0": {
         "compile": {
           ".NETFramework/v4.5.2/Facades/System.Globalization.dll": {}
+        }
+      },
+      "System.IdentityModel.Tokens.Jwt/5.0.0-rc2-305061149": {
+        "dependencies": {
+          "Microsoft.IdentityModel.Tokens": "5.0.0-rc2-305061149"
+        },
+        "compile": {
+          "lib/net451/System.IdentityModel.Tokens.Jwt.dll": {}
         }
       },
       "System.IO/4.0.0.0": {
@@ -1024,6 +1102,11 @@
           "bin/Debug/Entities.dll": {}
         }
       },
+      "Infrastructure/1.0.0": {
+        "compile": {
+          "bin/Debug/Infrastructure.dll": {}
+        }
+      },
       "mscorlib/4.0.0.0": {
         "compile": {
           ".NETFramework/v4.5.2/mscorlib.dll": {}
@@ -1037,6 +1120,11 @@
       "System.Core/4.0.0.0": {
         "compile": {
           ".NETFramework/v4.5.2/System.Core.dll": {}
+        }
+      },
+      "System.Net.Http/4.0.0.0": {
+        "compile": {
+          ".NETFramework/v4.5.2/System.Net.Http.dll": {}
         }
       },
       "System.Security/4.0.0.0": {
@@ -1074,6 +1162,9 @@
       "WebApi/1.0.0": {
         "dependencies": {
           "Entities": "1.0.0",
+          "Infrastructure": "1.0.0",
+          "FluentValidation.Mvc6": "1.0.0-rc2-20160608",
+          "IdentityServer4": "1.0.0-beta3",
           "Microsoft.ApplicationInsights.AspNetCore": "1.0.0-rc2-final",
           "Microsoft.AspNetCore.Mvc": "1.0.0-rc2-final",
           "Microsoft.AspNetCore.Server.IISIntegration": "1.0.0-rc2-final",
@@ -1089,6 +1180,34 @@
         },
         "runtime": {
           "WebApi.exe": {}
+        }
+      },
+      "FluentValidation.Mvc6/1.0.0-rc2-20160608": {
+        "runtime": {
+          "lib/FluentValidation.Mvc6.dll": {},
+          "lib/FluentValidation.Net5.dll": {}
+        }
+      },
+      "IdentityModel/2.0.0-beta3": {
+        "dependencies": {
+          "Newtonsoft.Json": "8.0.4-beta1",
+          "System.Net.Http": "4.0.0.0"
+        },
+        "runtime": {
+          "lib/net451/IdentityModel.dll": {}
+        }
+      },
+      "IdentityServer4/1.0.0-beta3": {
+        "dependencies": {
+          "IdentityModel": "2.0.0-beta3",
+          "Microsoft.AspNetCore.Authentication.Cookies": "1.0.0-rc2-final",
+          "Microsoft.AspNetCore.Cors": "1.0.0-rc2-final",
+          "Microsoft.AspNetCore.Http.Abstractions": "1.0.0-rc2-final",
+          "Microsoft.Extensions.DependencyInjection.Abstractions": "1.0.0-rc2-final",
+          "System.IdentityModel.Tokens.Jwt": "5.0.0-rc2-305061149"
+        },
+        "runtime": {
+          "lib/net451/IdentityServer4.dll": {}
         }
       },
       "Libuv/1.9.0-rc2-20901": {},
@@ -1153,6 +1272,30 @@
         },
         "runtime": {
           "lib/net451/Microsoft.AspNetCore.Antiforgery.dll": {}
+        }
+      },
+      "Microsoft.AspNetCore.Authentication/1.0.0-rc2-final": {
+        "dependencies": {
+          "Microsoft.AspNetCore.DataProtection": "1.0.0-rc2-final",
+          "Microsoft.AspNetCore.Http": "1.0.0-rc2-final",
+          "Microsoft.AspNetCore.Http.Extensions": "1.0.0-rc2-final",
+          "Microsoft.Extensions.Logging.Abstractions": "1.0.0-rc2-final",
+          "Microsoft.Extensions.Options": "1.0.0-rc2-final",
+          "Microsoft.Extensions.WebEncoders": "1.0.0-rc2-final",
+          "System.Net.Http": "4.0.0.0"
+        },
+        "runtime": {
+          "lib/net451/Microsoft.AspNetCore.Authentication.dll": {}
+        }
+      },
+      "Microsoft.AspNetCore.Authentication.Cookies/1.0.0-rc2-final": {
+        "dependencies": {
+          "Microsoft.AspNetCore.Authentication": "1.0.0-rc2-final",
+          "Microsoft.Extensions.Options": "1.0.0-rc2-final",
+          "Microsoft.Extensions.WebEncoders": "1.0.0-rc2-final"
+        },
+        "runtime": {
+          "lib/net451/Microsoft.AspNetCore.Authentication.Cookies.dll": {}
         }
       },
       "Microsoft.AspNetCore.Authorization/1.0.0-rc2-final": {
@@ -1313,7 +1456,7 @@
       "Microsoft.AspNetCore.JsonPatch/1.0.0-rc2-final": {
         "dependencies": {
           "Microsoft.CSharp": "4.0.0.0",
-          "Newtonsoft.Json": "8.0.3",
+          "Newtonsoft.Json": "8.0.4-beta1",
           "System.Collections.Concurrent": "4.0.0.0",
           "System.ComponentModel.TypeConverter": "4.0.1-rc2-24027",
           "System.Diagnostics.Debug": "4.0.0.0",
@@ -1472,7 +1615,7 @@
           "Microsoft.AspNetCore.Mvc.DataAnnotations": "1.0.0-rc2-final",
           "Microsoft.AspNetCore.Mvc.Formatters.Json": "1.0.0-rc2-final",
           "Microsoft.Extensions.WebEncoders": "1.0.0-rc2-final",
-          "Newtonsoft.Json": "8.0.3",
+          "Newtonsoft.Json": "8.0.4-beta1",
           "System.Buffers": "4.0.0-rc2-24027"
         },
         "runtime": {
@@ -1656,7 +1799,7 @@
         "dependencies": {
           "Microsoft.Extensions.Configuration": "1.0.0-rc2-final",
           "Microsoft.Extensions.Configuration.FileExtensions": "1.0.0-rc2-final",
-          "Newtonsoft.Json": "8.0.3"
+          "Newtonsoft.Json": "8.0.4-beta1"
         },
         "runtime": {
           "lib/net451/Microsoft.Extensions.Configuration.Json.dll": {}
@@ -1700,7 +1843,7 @@
       "Microsoft.Extensions.DependencyModel/1.0.0-rc2-final": {
         "dependencies": {
           "Microsoft.DotNet.InternalAbstractions": "1.0.0-rc2-002702",
-          "Newtonsoft.Json": "8.0.3"
+          "Newtonsoft.Json": "8.0.4-beta1"
         },
         "runtime": {
           "lib/net451/Microsoft.Extensions.DependencyModel.dll": {}
@@ -1874,6 +2017,21 @@
           "lib/netstandard1.0/Microsoft.Extensions.WebEncoders.dll": {}
         }
       },
+      "Microsoft.IdentityModel.Logging/1.0.0-rc2-305061149": {
+        "runtime": {
+          "lib/net451/Microsoft.IdentityModel.Logging.dll": {}
+        }
+      },
+      "Microsoft.IdentityModel.Tokens/5.0.0-rc2-305061149": {
+        "dependencies": {
+          "Microsoft.IdentityModel.Logging": "1.0.0-rc2-305061149",
+          "Newtonsoft.Json": "8.0.4-beta1",
+          "System.Xml": "4.0.0.0"
+        },
+        "runtime": {
+          "lib/net451/Microsoft.IdentityModel.Tokens.dll": {}
+        }
+      },
       "Microsoft.Net.Http.Headers/1.0.0-rc2-final": {
         "dependencies": {
           "System.Buffers": "4.0.0-rc2-24027",
@@ -1889,7 +2047,7 @@
           "lib/netstandard1.1/Microsoft.Net.Http.Headers.dll": {}
         }
       },
-      "Newtonsoft.Json/8.0.3": {
+      "Newtonsoft.Json/8.0.4-beta1": {
         "runtime": {
           "lib/net45/Newtonsoft.Json.dll": {}
         }
@@ -1944,6 +2102,14 @@
         }
       },
       "System.Globalization/4.0.0.0": {},
+      "System.IdentityModel.Tokens.Jwt/5.0.0-rc2-305061149": {
+        "dependencies": {
+          "Microsoft.IdentityModel.Tokens": "5.0.0-rc2-305061149"
+        },
+        "runtime": {
+          "lib/net451/System.IdentityModel.Tokens.Jwt.dll": {}
+        }
+      },
       "System.IO/4.0.0.0": {},
       "System.Linq/4.0.0.0": {},
       "System.Linq.Expressions/4.0.0.0": {},
@@ -1990,9 +2156,15 @@
           "bin/Debug/Entities.dll": {}
         }
       },
+      "Infrastructure/1.0.0": {
+        "runtime": {
+          "bin/Debug/Infrastructure.dll": {}
+        }
+      },
       "mscorlib/4.0.0.0": {},
       "System/4.0.0.0": {},
       "System.Core/4.0.0.0": {},
+      "System.Net.Http/4.0.0.0": {},
       "System.Security/4.0.0.0": {},
       "System.Xml/4.0.0.0": {},
       "System.Xml.Linq/4.0.0.0": {},
@@ -2006,6 +2178,21 @@
       "type": "project",
       "serviceable": false,
       "sha512": ""
+    },
+    "FluentValidation.Mvc6/1.0.0-rc2-20160608": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-xD4bStdnnT+r6Mt8rTSxlkcsuFPxfQVrb+2PcsDlERn9eY4DC3rbOCyMLZ50R9Ds0SNcquNrfEap/GYsGi7QAw=="
+    },
+    "IdentityModel/2.0.0-beta3": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-iA5Kl8LNQTnKOsXgPvXSOgBnATGN8c4bYXEivE4UAddTXl4GzosVRrmZMTXfiKGiXOQMEBanHjG64GhRWS8LCQ=="
+    },
+    "IdentityServer4/1.0.0-beta3": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-q1V72GifFIkwmfVlNpC6kqujVmanpaVvjn0+PLaA83qdsMHddEUB+6n4ZhdND0qKchWB4j28iRuBoWrRJXTXyw=="
     },
     "Libuv/1.9.0-rc2-20901": {
       "type": "package",
@@ -2046,6 +2233,16 @@
       "type": "package",
       "serviceable": true,
       "sha512": "sha512-dvmfV1ExR2oqTt9rxhaRrutFBfta7fXY4o5nA8OU0f8CYzdZ7vyw7hyebAEE1p9SFXH5Km8/WFWkZ8uu3GNGPg=="
+    },
+    "Microsoft.AspNetCore.Authentication/1.0.0-rc2-final": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-Q3bnG8ubRJgSR3JThOve/YZNnw0wF41eixjZ+5W9jbY+xqr0DLRnRp465mxtXkaQTgzznjAZnBQi5E6C+CESVw=="
+    },
+    "Microsoft.AspNetCore.Authentication.Cookies/1.0.0-rc2-final": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-IAS6XC4XLxqUckEYAnMXaDNJSW4s/LZRNI+rTcYZ1FPSct5QzPEy13zh4TxcozOIy5p+FjLpcEqckaAbegSOiQ=="
     },
     "Microsoft.AspNetCore.Authorization/1.0.0-rc2-final": {
       "type": "package",
@@ -2397,15 +2594,25 @@
       "serviceable": true,
       "sha512": "sha512-OCXr7Y9u/tmKhmNMJqbAlMcUQxtpzJvZ1Jvs8LJoSyCCFVmZlwZ8c6k7ileYpW2jvxGGOQ6N64V184HY2uQPHg=="
     },
+    "Microsoft.IdentityModel.Logging/1.0.0-rc2-305061149": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-SmXdU8pZd6FqB2dyPZdABVXVW/g/AqE2dcKOpVW2/ILHnwRdXXkux8s0lnpPYtJPsuY3K/by6fGTBHKsB9lt9w=="
+    },
+    "Microsoft.IdentityModel.Tokens/5.0.0-rc2-305061149": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-IaBBTV2Zg+vWkTWfb2AXShWmAMZsuzi9QwB7t/7wrFDGpN9TMoTWdRm1BK0NZT5s4VQ3hRkEY4I/5rFsaHz/Jw=="
+    },
     "Microsoft.Net.Http.Headers/1.0.0-rc2-final": {
       "type": "package",
       "serviceable": true,
       "sha512": "sha512-80kfOb0U8FKsKxv0fHtJFhcAWeYIvTAz4NCrKi84n5XXzMPNV7DLdy6d0g2f7UCj0iOtNGE5cGvAFiWqqZFeEA=="
     },
-    "Newtonsoft.Json/8.0.3": {
+    "Newtonsoft.Json/8.0.4-beta1": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-KGsYQdS2zLH+H8x2cZaSI7e+YZ4SFIbyy1YJQYl6GYBWjf5o4H1A68nxyq+WTyVSOJQ4GqS/DiPE+UseUizgMg=="
+      "sha512": "sha512-GqF30CGzAlNEK7bvCUcf7pjZpQDXqS7tNLflNPus5yJKXW6nrzjTiqgcHs/lIPaeVxvpFIqQgqQNL+4TmgxCjQ=="
     },
     "System.Buffers/4.0.0-rc2-24027": {
       "type": "package",
@@ -2461,6 +2668,11 @@
       "type": "referenceassembly",
       "serviceable": false,
       "sha512": ""
+    },
+    "System.IdentityModel.Tokens.Jwt/5.0.0-rc2-305061149": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-fEuQocKfmdwYd6nfCZKSK6BHx3we4F8VmRj5BgJB77j+KZ2TreQhvbDgoJuO+ZNrs+Tcm2BeIJWN69DW3isY7Q=="
     },
     "System.IO/4.0.0.0": {
       "type": "referenceassembly",
@@ -2567,6 +2779,11 @@
       "serviceable": false,
       "sha512": ""
     },
+    "Infrastructure/1.0.0": {
+      "type": "msbuildproject",
+      "serviceable": false,
+      "sha512": ""
+    },
     "mscorlib/4.0.0.0": {
       "type": "referenceassembly",
       "serviceable": false,
@@ -2578,6 +2795,11 @@
       "sha512": ""
     },
     "System.Core/4.0.0.0": {
+      "type": "referenceassembly",
+      "serviceable": false,
+      "sha512": ""
+    },
+    "System.Net.Http/4.0.0.0": {
       "type": "referenceassembly",
       "serviceable": false,
       "sha512": ""

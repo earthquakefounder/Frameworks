@@ -8,3 +8,13 @@ C:\Users\Matthew\Desktop\Frameworks\Entities\bin\Debug\EntityFramework.SqlServer
 C:\Users\Matthew\Desktop\Frameworks\Entities\obj\Debug\Entities.csprojResolveAssemblyReference.cache
 C:\Users\Matthew\Desktop\Frameworks\Entities\obj\Debug\Entities.dll
 C:\Users\Matthew\Desktop\Frameworks\Entities\obj\Debug\Entities.pdb
+C:\Users\Matthew.NUGROWTH\Desktop\Frameworks\Entities\obj\Debug\Entities.csprojResolveAssemblyReference.cache
+C:\Users\Matthew.NUGROWTH\Desktop\Frameworks\Entities\obj\Debug\Entities.dll
+C:\Users\Matthew.NUGROWTH\Desktop\Frameworks\Entities\obj\Debug\Entities.pdb
+C:\Users\Matthew.NUGROWTH\Desktop\Frameworks\Entities\bin\Debug\Entities.dll.config
+C:\Users\Matthew.NUGROWTH\Desktop\Frameworks\Entities\bin\Debug\Entities.dll
+C:\Users\Matthew.NUGROWTH\Desktop\Frameworks\Entities\bin\Debug\Entities.pdb
+C:\Users\Matthew.NUGROWTH\Desktop\Frameworks\Entities\bin\Debug\EntityFramework.dll
+C:\Users\Matthew.NUGROWTH\Desktop\Frameworks\Entities\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Matthew.NUGROWTH\Desktop\Frameworks\Entities\bin\Debug\EntityFramework.xml
+C:\Users\Matthew.NUGROWTH\Desktop\Frameworks\Entities\bin\Debug\EntityFramework.SqlServer.xml

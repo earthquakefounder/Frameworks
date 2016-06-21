@@ -12,7 +12,10 @@ namespace WebApi.Controllers
     [Route("api/[controller]")]
     public class ValuesController : Controller
     {
-        public ValuesController(IStorageContext<AppUser> users) { }
+        public ValuesController(IStorageContext<AppUser> users)
+        {
+            
+        }
 
         // GET api/values
         [HttpGet]

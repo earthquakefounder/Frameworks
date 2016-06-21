@@ -3,6 +3,49 @@
   "version": 2,
   "targets": {
     ".NETFramework,Version=v4.5.2": {
+      "FluentValidation.Mvc6/1.0.0-rc2-20160608": {
+        "type": "package",
+        "compile": {
+          "lib/FluentValidation.Mvc6.dll": {},
+          "lib/FluentValidation.Net5.dll": {}
+        },
+        "runtime": {
+          "lib/FluentValidation.Mvc6.dll": {},
+          "lib/FluentValidation.Net5.dll": {}
+        }
+      },
+      "IdentityModel/2.0.0-beta3": {
+        "type": "package",
+        "dependencies": {
+          "Newtonsoft.Json": "8.0.4-beta1"
+        },
+        "frameworkAssemblies": [
+          "System.Net.Http"
+        ],
+        "compile": {
+          "lib/net451/IdentityModel.dll": {}
+        },
+        "runtime": {
+          "lib/net451/IdentityModel.dll": {}
+        }
+      },
+      "IdentityServer4/1.0.0-beta3": {
+        "type": "package",
+        "dependencies": {
+          "IdentityModel": "2.0.0-beta3",
+          "Microsoft.AspNetCore.Authentication.Cookies": "1.0.0-rc2-final",
+          "Microsoft.AspNetCore.Cors": "1.0.0-rc2-final",
+          "Microsoft.AspNetCore.Http.Abstractions": "1.0.0-rc2-final",
+          "Microsoft.Extensions.DependencyInjection.Abstractions": "1.0.0-rc2-final",
+          "System.IdentityModel.Tokens.Jwt": "5.0.0-rc2-305061149"
+        },
+        "compile": {
+          "lib/net451/IdentityServer4.dll": {}
+        },
+        "runtime": {
+          "lib/net451/IdentityServer4.dll": {}
+        }
+      },
       "Libuv/1.9.0-rc2-20901": {
         "type": "package",
         "runtimeTargets": {
@@ -121,6 +164,40 @@
         },
         "runtime": {
           "lib/net451/Microsoft.AspNetCore.Antiforgery.dll": {}
+        }
+      },
+      "Microsoft.AspNetCore.Authentication/1.0.0-rc2-final": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.AspNetCore.DataProtection": "1.0.0-rc2-final",
+          "Microsoft.AspNetCore.Http": "1.0.0-rc2-final",
+          "Microsoft.AspNetCore.Http.Extensions": "1.0.0-rc2-final",
+          "Microsoft.Extensions.Logging.Abstractions": "1.0.0-rc2-final",
+          "Microsoft.Extensions.Options": "1.0.0-rc2-final",
+          "Microsoft.Extensions.WebEncoders": "1.0.0-rc2-final"
+        },
+        "frameworkAssemblies": [
+          "System.Net.Http"
+        ],
+        "compile": {
+          "lib/net451/Microsoft.AspNetCore.Authentication.dll": {}
+        },
+        "runtime": {
+          "lib/net451/Microsoft.AspNetCore.Authentication.dll": {}
+        }
+      },
+      "Microsoft.AspNetCore.Authentication.Cookies/1.0.0-rc2-final": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.AspNetCore.Authentication": "1.0.0-rc2-final",
+          "Microsoft.Extensions.Options": "1.0.0-rc2-final",
+          "Microsoft.Extensions.WebEncoders": "1.0.0-rc2-final"
+        },
+        "compile": {
+          "lib/net451/Microsoft.AspNetCore.Authentication.Cookies.dll": {}
+        },
+        "runtime": {
+          "lib/net451/Microsoft.AspNetCore.Authentication.Cookies.dll": {}
         }
       },
       "Microsoft.AspNetCore.Authorization/1.0.0-rc2-final": {
@@ -1132,6 +1209,31 @@
           "lib/netstandard1.0/Microsoft.Extensions.WebEncoders.dll": {}
         }
       },
+      "Microsoft.IdentityModel.Logging/1.0.0-rc2-305061149": {
+        "type": "package",
+        "compile": {
+          "lib/net451/Microsoft.IdentityModel.Logging.dll": {}
+        },
+        "runtime": {
+          "lib/net451/Microsoft.IdentityModel.Logging.dll": {}
+        }
+      },
+      "Microsoft.IdentityModel.Tokens/5.0.0-rc2-305061149": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.IdentityModel.Logging": "1.0.0-rc2-305061149",
+          "Newtonsoft.Json": "8.0.3"
+        },
+        "frameworkAssemblies": [
+          "System.Xml"
+        ],
+        "compile": {
+          "lib/net451/Microsoft.IdentityModel.Tokens.dll": {}
+        },
+        "runtime": {
+          "lib/net451/Microsoft.IdentityModel.Tokens.dll": {}
+        }
+      },
       "Microsoft.Net.Http.Headers/1.0.0-rc2-final": {
         "type": "package",
         "dependencies": {
@@ -1151,7 +1253,7 @@
           "lib/netstandard1.1/Microsoft.Net.Http.Headers.dll": {}
         }
       },
-      "Newtonsoft.Json/8.0.3": {
+      "Newtonsoft.Json/8.0.4-beta1": {
         "type": "package",
         "compile": {
           "lib/net45/Newtonsoft.Json.dll": {}
@@ -1278,6 +1380,18 @@
         },
         "runtime": {
           "lib/net45/_._": {}
+        }
+      },
+      "System.IdentityModel.Tokens.Jwt/5.0.0-rc2-305061149": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.IdentityModel.Tokens": "5.0.0-rc2-305061149"
+        },
+        "compile": {
+          "lib/net451/System.IdentityModel.Tokens.Jwt.dll": {}
+        },
+        "runtime": {
+          "lib/net451/System.IdentityModel.Tokens.Jwt.dll": {}
         }
       },
       "System.IO/4.1.0-rc2-24027": {
@@ -1465,10 +1579,43 @@
       },
       "Entities/1.0.0": {
         "type": "project"
+      },
+      "Infrastructure/1.0.0": {
+        "type": "project"
       }
     }
   },
   "libraries": {
+    "FluentValidation.Mvc6/1.0.0-rc2-20160608": {
+      "sha512": "xD4bStdnnT+r6Mt8rTSxlkcsuFPxfQVrb+2PcsDlERn9eY4DC3rbOCyMLZ50R9Ds0SNcquNrfEap/GYsGi7QAw==",
+      "type": "package",
+      "files": [
+        "FluentValidation.Mvc6.1.0.0-rc2-20160608.nupkg.sha512",
+        "FluentValidation.Mvc6.nuspec",
+        "lib/FluentValidation.Mvc6.dll",
+        "lib/FluentValidation.Net5.dll"
+      ]
+    },
+    "IdentityModel/2.0.0-beta3": {
+      "sha512": "iA5Kl8LNQTnKOsXgPvXSOgBnATGN8c4bYXEivE4UAddTXl4GzosVRrmZMTXfiKGiXOQMEBanHjG64GhRWS8LCQ==",
+      "type": "package",
+      "files": [
+        "IdentityModel.2.0.0-beta3.nupkg.sha512",
+        "IdentityModel.nuspec",
+        "lib/net451/IdentityModel.dll",
+        "lib/netstandard1.3/IdentityModel.dll"
+      ]
+    },
+    "IdentityServer4/1.0.0-beta3": {
+      "sha512": "q1V72GifFIkwmfVlNpC6kqujVmanpaVvjn0+PLaA83qdsMHddEUB+6n4ZhdND0qKchWB4j28iRuBoWrRJXTXyw==",
+      "type": "package",
+      "files": [
+        "IdentityServer4.1.0.0-beta3.nupkg.sha512",
+        "IdentityServer4.nuspec",
+        "lib/net451/IdentityServer4.dll",
+        "lib/netstandard1.4/IdentityServer4.dll"
+      ]
+    },
     "Libuv/1.9.0-rc2-20901": {
       "sha512": "NW+YOuRDrlmGM6yjSRjJUqlHukDEqUTuZKVJvEzWV4LH8wEKqrmVcxTqAab87+UiQ3KOLsyaBJ3ZNdmzxFUTig==",
       "type": "package",
@@ -1488,6 +1635,7 @@
       "sha512": "u/X6t1k0okneE2+nG2q45dBoUiZJebpJqvVMHOW6/jGP7/WrSw1p/KMNZ486u17PU6abwpHe+Y/Yj3man6OrPg==",
       "type": "package",
       "files": [
+        "Microsoft.ApplicationInsights.2.1.0-beta4.nupkg",
         "Microsoft.ApplicationInsights.2.1.0-beta4.nupkg.sha512",
         "Microsoft.ApplicationInsights.nuspec",
         "lib/dotnet5.4/Microsoft.ApplicationInsights.XML",
@@ -1507,6 +1655,7 @@
       "sha512": "nuqnTp+xechqRPBUi7sr4gxhyr+gJwMaxvSrhB4NyK1TbnT3yk1P5giSnaqQVvuIRHAdl9uD7lt2GRx/P/nlrA==",
       "type": "package",
       "files": [
+        "Microsoft.ApplicationInsights.Agent.Intercept.1.2.1.nupkg",
         "Microsoft.ApplicationInsights.Agent.Intercept.1.2.1.nupkg.sha512",
         "Microsoft.ApplicationInsights.Agent.Intercept.nuspec",
         "lib/net40/Microsoft.AI.Agent.Intercept.dll",
@@ -1527,6 +1676,7 @@
       "sha512": "POhlZUp3I5N0OhNGN+vMTPt3Ez8UktOPKS1VoRS+opL8pchY6abrZv6YvL3FbGW9gP5raDJDZalSOGsE10IRWQ==",
       "type": "package",
       "files": [
+        "Microsoft.ApplicationInsights.DependencyCollector.2.1.0-beta4.nupkg",
         "Microsoft.ApplicationInsights.DependencyCollector.2.1.0-beta4.nupkg.sha512",
         "Microsoft.ApplicationInsights.DependencyCollector.nuspec",
         "content/ApplicationInsights.config.install.xdt",
@@ -1542,6 +1692,7 @@
       "sha512": "DGlewsyEqb91rUbVHYR0VMafNR8GOP50n3Nkg9TlFyyxzSX1yQmXdIfb7g6FCf1VoRuCmL0WrMDkoGKmh7AR3Q==",
       "type": "package",
       "files": [
+        "Microsoft.ApplicationInsights.PerfCounterCollector.2.1.0-beta4.nupkg",
         "Microsoft.ApplicationInsights.PerfCounterCollector.2.1.0-beta4.nupkg.sha512",
         "Microsoft.ApplicationInsights.PerfCounterCollector.nuspec",
         "content/ApplicationInsights.config.install.xdt",
@@ -1555,6 +1706,7 @@
       "sha512": "M3lC/KAWnevK/fmXQHdQ4jFWLurYdUpnOsF6m+HtjHcgJiprdsEohYXFImFp7u2ZodCqwIhxkVLIjFFvKSXoPw==",
       "type": "package",
       "files": [
+        "Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.2.1.0-beta4.nupkg",
         "Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.2.1.0-beta4.nupkg.sha512",
         "Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.nuspec",
         "content/ApplicationInsights.config.install.xdt",
@@ -1576,6 +1728,30 @@
         "lib/net451/Microsoft.AspNetCore.Antiforgery.xml",
         "lib/netstandard1.3/Microsoft.AspNetCore.Antiforgery.dll",
         "lib/netstandard1.3/Microsoft.AspNetCore.Antiforgery.xml"
+      ]
+    },
+    "Microsoft.AspNetCore.Authentication/1.0.0-rc2-final": {
+      "sha512": "Q3bnG8ubRJgSR3JThOve/YZNnw0wF41eixjZ+5W9jbY+xqr0DLRnRp465mxtXkaQTgzznjAZnBQi5E6C+CESVw==",
+      "type": "package",
+      "files": [
+        "Microsoft.AspNetCore.Authentication.1.0.0-rc2-final.nupkg.sha512",
+        "Microsoft.AspNetCore.Authentication.nuspec",
+        "lib/net451/Microsoft.AspNetCore.Authentication.dll",
+        "lib/net451/Microsoft.AspNetCore.Authentication.xml",
+        "lib/netstandard1.3/Microsoft.AspNetCore.Authentication.dll",
+        "lib/netstandard1.3/Microsoft.AspNetCore.Authentication.xml"
+      ]
+    },
+    "Microsoft.AspNetCore.Authentication.Cookies/1.0.0-rc2-final": {
+      "sha512": "IAS6XC4XLxqUckEYAnMXaDNJSW4s/LZRNI+rTcYZ1FPSct5QzPEy13zh4TxcozOIy5p+FjLpcEqckaAbegSOiQ==",
+      "type": "package",
+      "files": [
+        "Microsoft.AspNetCore.Authentication.Cookies.1.0.0-rc2-final.nupkg.sha512",
+        "Microsoft.AspNetCore.Authentication.Cookies.nuspec",
+        "lib/net451/Microsoft.AspNetCore.Authentication.Cookies.dll",
+        "lib/net451/Microsoft.AspNetCore.Authentication.Cookies.xml",
+        "lib/netstandard1.3/Microsoft.AspNetCore.Authentication.Cookies.dll",
+        "lib/netstandard1.3/Microsoft.AspNetCore.Authentication.Cookies.xml"
       ]
     },
     "Microsoft.AspNetCore.Authorization/1.0.0-rc2-final": {
@@ -2008,6 +2184,7 @@
       "sha512": "HS3iRWZKcUw/8eZ/08GXKY2Bn7xNzQPzf8gRPHGSowX7u7XXu9i9YEaBeBNKUXWfI7qjvT2zXtLUvbN0hds8vg==",
       "type": "package",
       "files": [
+        "Microsoft.CodeAnalysis.Analyzers.1.1.0.nupkg",
         "Microsoft.CodeAnalysis.Analyzers.1.1.0.nupkg.sha512",
         "Microsoft.CodeAnalysis.Analyzers.nuspec",
         "ThirdPartyNotices.rtf",
@@ -2023,6 +2200,7 @@
       "sha512": "TSrsz9ZhBpbO3HTK0kNSUQNVTqfSEcgbPXzB/0VrkEfrXLNESJzqmA94ddrf+51w5o9kMMH53/er1A1A+PmZVg==",
       "type": "package",
       "files": [
+        "Microsoft.CodeAnalysis.Common.1.3.0-beta1-20160429-01.nupkg",
         "Microsoft.CodeAnalysis.Common.1.3.0-beta1-20160429-01.nupkg.sha512",
         "Microsoft.CodeAnalysis.Common.nuspec",
         "ThirdPartyNotices.rtf",
@@ -2038,6 +2216,7 @@
       "sha512": "q0uOK8fa3CNYNKud8OygnYmOvgcBQxQAnS2irP9LbARMGkCB1qNpjhSeiC+eF402O5Xb5voGOXnrIQbdLUv5TA==",
       "type": "package",
       "files": [
+        "Microsoft.CodeAnalysis.CSharp.1.3.0-beta1-20160429-01.nupkg",
         "Microsoft.CodeAnalysis.CSharp.1.3.0-beta1-20160429-01.nupkg.sha512",
         "Microsoft.CodeAnalysis.CSharp.nuspec",
         "ThirdPartyNotices.rtf",
@@ -2109,6 +2288,7 @@
       "sha512": "81Zp6K3oJY5zyoCtf7eguaZ+EnM3zawCtUKszBCLob1KH6Bu44ET2hokkk/6eMhTI2aQhbGrV9SaSjJ2K8DUDg==",
       "type": "package",
       "files": [
+        "Microsoft.DotNet.InternalAbstractions.1.0.0-rc2-002702.nupkg",
         "Microsoft.DotNet.InternalAbstractions.1.0.0-rc2-002702.nupkg.sha512",
         "Microsoft.DotNet.InternalAbstractions.nuspec",
         "lib/net451/Microsoft.DotNet.InternalAbstractions.dll",
@@ -2447,6 +2627,26 @@
         "lib/netstandard1.0/Microsoft.Extensions.WebEncoders.xml"
       ]
     },
+    "Microsoft.IdentityModel.Logging/1.0.0-rc2-305061149": {
+      "sha512": "SmXdU8pZd6FqB2dyPZdABVXVW/g/AqE2dcKOpVW2/ILHnwRdXXkux8s0lnpPYtJPsuY3K/by6fGTBHKsB9lt9w==",
+      "type": "package",
+      "files": [
+        "Microsoft.IdentityModel.Logging.1.0.0-rc2-305061149.nupkg.sha512",
+        "Microsoft.IdentityModel.Logging.nuspec",
+        "lib/net451/Microsoft.IdentityModel.Logging.dll",
+        "lib/netstandard1.4/Microsoft.IdentityModel.Logging.dll"
+      ]
+    },
+    "Microsoft.IdentityModel.Tokens/5.0.0-rc2-305061149": {
+      "sha512": "IaBBTV2Zg+vWkTWfb2AXShWmAMZsuzi9QwB7t/7wrFDGpN9TMoTWdRm1BK0NZT5s4VQ3hRkEY4I/5rFsaHz/Jw==",
+      "type": "package",
+      "files": [
+        "Microsoft.IdentityModel.Tokens.5.0.0-rc2-305061149.nupkg.sha512",
+        "Microsoft.IdentityModel.Tokens.nuspec",
+        "lib/net451/Microsoft.IdentityModel.Tokens.dll",
+        "lib/netstandard1.4/Microsoft.IdentityModel.Tokens.dll"
+      ]
+    },
     "Microsoft.Net.Http.Headers/1.0.0-rc2-final": {
       "sha512": "80kfOb0U8FKsKxv0fHtJFhcAWeYIvTAz4NCrKi84n5XXzMPNV7DLdy6d0g2f7UCj0iOtNGE5cGvAFiWqqZFeEA==",
       "type": "package",
@@ -2457,11 +2657,11 @@
         "lib/netstandard1.1/Microsoft.Net.Http.Headers.xml"
       ]
     },
-    "Newtonsoft.Json/8.0.3": {
-      "sha512": "KGsYQdS2zLH+H8x2cZaSI7e+YZ4SFIbyy1YJQYl6GYBWjf5o4H1A68nxyq+WTyVSOJQ4GqS/DiPE+UseUizgMg==",
+    "Newtonsoft.Json/8.0.4-beta1": {
+      "sha512": "GqF30CGzAlNEK7bvCUcf7pjZpQDXqS7tNLflNPus5yJKXW6nrzjTiqgcHs/lIPaeVxvpFIqQgqQNL+4TmgxCjQ==",
       "type": "package",
       "files": [
-        "Newtonsoft.Json.8.0.3.nupkg.sha512",
+        "Newtonsoft.Json.8.0.4-beta1.nupkg.sha512",
         "Newtonsoft.Json.nuspec",
         "lib/net20/Newtonsoft.Json.dll",
         "lib/net20/Newtonsoft.Json.xml",
@@ -2471,10 +2671,12 @@
         "lib/net40/Newtonsoft.Json.xml",
         "lib/net45/Newtonsoft.Json.dll",
         "lib/net45/Newtonsoft.Json.xml",
+        "lib/netstandard1.0/Newtonsoft.Json.dll",
+        "lib/netstandard1.0/Newtonsoft.Json.xml",
         "lib/portable-net40+sl5+wp80+win8+wpa81/Newtonsoft.Json.dll",
         "lib/portable-net40+sl5+wp80+win8+wpa81/Newtonsoft.Json.xml",
-        "lib/portable-net45+wp80+win8+wpa81+dnxcore50/Newtonsoft.Json.dll",
-        "lib/portable-net45+wp80+win8+wpa81+dnxcore50/Newtonsoft.Json.xml",
+        "lib/portable-net45+wp80+win8+wpa81/Newtonsoft.Json.dll",
+        "lib/portable-net45+wp80+win8+wpa81/Newtonsoft.Json.xml",
         "tools/install.ps1"
       ]
     },
@@ -2482,6 +2684,7 @@
       "sha512": "eyzIgf8Mh/SjxN1gsGnH09ICA5U2TGWU5I3Rp1V0ayO9UmTf5XrsZo3+LwKbj+fycoh2yYg0leFa7IG0/+Bs3g==",
       "type": "package",
       "files": [
+        "System.Buffers.4.0.0-rc2-24027.nupkg",
         "System.Buffers.4.0.0-rc2-24027.nupkg.sha512",
         "System.Buffers.nuspec",
         "ThirdPartyNotices.txt",
@@ -2624,6 +2827,7 @@
       "sha512": "fTpqwZYBzoklTT+XjTRK8KxvmrGkYHzBiylCcKyQcxiOM8k+QvhNBxRvFHDWzy4OEP5f8/9n+xQ9mEgEXY+muA==",
       "type": "package",
       "files": [
+        "System.Collections.Immutable.1.1.37.nupkg",
         "System.Collections.Immutable.1.1.37.nupkg.sha512",
         "System.Collections.Immutable.nuspec",
         "lib/dotnet/System.Collections.Immutable.dll",
@@ -2886,6 +3090,7 @@
       "sha512": "NPjXdTV6+9D0ZaHUn5JI0lxusxZAKOuHIVPmMXV+L4Ypm/nFaH+gDMn0o6ZNb9B3l46DfdxyrZYc0E2AfEHQrA==",
       "type": "package",
       "files": [
+        "System.Diagnostics.DiagnosticSource.4.0.0-rc2-24027.nupkg",
         "System.Diagnostics.DiagnosticSource.4.0.0-rc2-24027.nupkg.sha512",
         "System.Diagnostics.DiagnosticSource.nuspec",
         "ThirdPartyNotices.txt",
@@ -2963,6 +3168,16 @@
         "ref/xamarinmac20/_._",
         "ref/xamarintvos10/_._",
         "ref/xamarinwatchos10/_._"
+      ]
+    },
+    "System.IdentityModel.Tokens.Jwt/5.0.0-rc2-305061149": {
+      "sha512": "fEuQocKfmdwYd6nfCZKSK6BHx3we4F8VmRj5BgJB77j+KZ2TreQhvbDgoJuO+ZNrs+Tcm2BeIJWN69DW3isY7Q==",
+      "type": "package",
+      "files": [
+        "System.IdentityModel.Tokens.Jwt.5.0.0-rc2-305061149.nupkg.sha512",
+        "System.IdentityModel.Tokens.Jwt.nuspec",
+        "lib/net451/System.IdentityModel.Tokens.Jwt.dll",
+        "lib/netstandard1.4/System.IdentityModel.Tokens.Jwt.dll"
       ]
     },
     "System.IO/4.1.0-rc2-24027": {
@@ -3184,6 +3399,7 @@
       "sha512": "9G+2IoDcQBas3kdySw4rz7XzI/dbUqPkC0yiOR9YAWZpOH52icM6YxcgTKiI3Weh3w1il/xMrplrTYuE6hqAaA==",
       "type": "package",
       "files": [
+        "System.Numerics.Vectors.4.1.1-rc2-24027.nupkg",
         "System.Numerics.Vectors.4.1.1-rc2-24027.nupkg.sha512",
         "System.Numerics.Vectors.nuspec",
         "ThirdPartyNotices.txt",
@@ -3409,6 +3625,7 @@
       "sha512": "ubQKFCNYPwhqPXPLjRKCvTDR2UvL5L5+Tm181D/5kl/df7264AuXDi2j2Bf5DxplBxevq8eUH9LRomcFCXTQKw==",
       "type": "package",
       "files": [
+        "System.Reflection.Metadata.1.2.0.nupkg",
         "System.Reflection.Metadata.1.2.0.nupkg.sha512",
         "System.Reflection.Metadata.nuspec",
         "ThirdPartyNotices.txt",
@@ -3931,6 +4148,7 @@
       "sha512": "r8and4JvIHRMq1Zc1H+hRKhRearrYKogJ18hQRZRsq9dcRRuxIwsv3FB73N7tMflYA2eJDmcWeqlBlYzGhOSdQ==",
       "type": "package",
       "files": [
+        "System.Text.Encodings.Web.4.0.0-rc2-24027.nupkg",
         "System.Text.Encodings.Web.4.0.0-rc2-24027.nupkg.sha512",
         "System.Text.Encodings.Web.nuspec",
         "ThirdPartyNotices.txt",
@@ -4076,6 +4294,7 @@
       "sha512": "dfj0Fl7/0KeP1UwQvo7xu7LdRAHfJ/Pdvo2YL+sDHddCLaiu+1yNyijYBocaCgQ4H0t8nEg8he/dWsPpaTdfNg==",
       "type": "package",
       "files": [
+        "System.Threading.Tasks.Extensions.4.0.0-rc2-24027.nupkg",
         "System.Threading.Tasks.Extensions.4.0.0-rc2-24027.nupkg.sha512",
         "System.Threading.Tasks.Extensions.nuspec",
         "ThirdPartyNotices.txt",
@@ -4089,10 +4308,16 @@
     "Entities/1.0.0": {
       "type": "project",
       "msbuildProject": "../Entities/Entities.csproj"
+    },
+    "Infrastructure/1.0.0": {
+      "type": "project",
+      "msbuildProject": "../Infrastructure/Infrastructure.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "": [
+      "FluentValidation.Mvc6 >= 1.0.0-rc2-20160608",
+      "IdentityServer4 >= 1.0.0-beta3",
       "Microsoft.ApplicationInsights.AspNetCore >= 1.0.0-rc2-final",
       "Microsoft.AspNetCore.Mvc >= 1.0.0-rc2-final",
       "Microsoft.AspNetCore.Server.IISIntegration >= 1.0.0-rc2-final",
@@ -4107,7 +4332,8 @@
       "Microsoft.Extensions.Logging.Debug >= 1.0.0-rc2-final"
     ],
     ".NETFramework,Version=v4.5.2": [
-      "Entities"
+      "Entities",
+      "Infrastructure"
     ]
   },
   "tools": {

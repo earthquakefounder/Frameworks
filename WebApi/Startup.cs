@@ -9,6 +9,12 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Entities.Contexts;
 using Entities.Settings;
+using Infrastructure.Encryption;
+using Infrastructure.Password;
+using FluentValidation;
+using FluentValidation.Mvc6;
+using WebApi.Domain.Factories;
+using WebApi.Domain.Extensions;
 
 namespace WebApi
 {
@@ -31,6 +37,12 @@ namespace WebApi
 
             builder.AddEnvironmentVariables();
             Configuration = builder.Build();
+
+            var x = new IdentityServer4.Configuration.IdentityServerOptions()
+            {
+                Endpoints = new IdentityServer4.Configuration.EndpointOptions
+            };
+
         }
 
         public IConfigurationRoot Configuration { get; }
@@ -38,18 +50,32 @@ namespace WebApi
         // This method gets called by the runtime. Use this method to add services to the container
         public void ConfigureServices(IServiceCollection services)
         {
+
             // Add framework services.
             services.AddApplicationInsightsTelemetry(Configuration);
 
-            services.AddMvc();
 
-            services.AddTransient<DatabaseConnections>(provider => new DatabaseConnections()
+
+            services.AddTransient(provider => new DatabaseConnections()
             {
                 Database = Configuration.GetValue<string>("Connections:Database")
-            });
+            })
+            .AddTransient<IEncryptor, Encryptor>()
+            .AddTransient(typeof(IStorageContext<>), typeof(StorageContext<>))
+            .AddTransient<IPasswordComplexity>(provider =>
+                new PasswordComplexity()
+                    .MinimumLength(8)
+                    .LowerCase()
+                    .UpperCase()
+                    .Numbers()
+                    .SpecialCharacters()
+            )
+            .AddTransient<IValidator<Features.Accounts.Models.RegisterUserModel>, Features.Accounts.Validations.RegisterUserModelValidation>();
 
-            services.AddTransient(typeof(IStorageContext<>), typeof(StorageContext<>));
-            
+            services.AddMvc().AddFluentValidation(provider =>
+            {
+                provider.ValidatorFactory = new ValidatorFactory(services.BuildServiceProvider());
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline
