@@ -1,5 +1,0 @@
-C:\Users\Matthew.NUGROWTH\Desktop\Frameworks\Infrastructure\bin\Debug\Infrastructure.dll
-C:\Users\Matthew.NUGROWTH\Desktop\Frameworks\Infrastructure\bin\Debug\Infrastructure.pdb
-C:\Users\Matthew.NUGROWTH\Desktop\Frameworks\Infrastructure\obj\Debug\Infrastructure.csprojResolveAssemblyReference.cache
-C:\Users\Matthew.NUGROWTH\Desktop\Frameworks\Infrastructure\obj\Debug\Infrastructure.dll
-C:\Users\Matthew.NUGROWTH\Desktop\Frameworks\Infrastructure\obj\Debug\Infrastructure.pdb
