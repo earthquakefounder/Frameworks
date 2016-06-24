@@ -52,6 +52,8 @@
     <Compile Include="Password\Rules\SpecialCharactersRule.cs" />
     <Compile Include="Password\Rules\UpperCaseRule.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Results\MethodResult.cs" />
+    <Compile Include="Results\ValidationResult.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

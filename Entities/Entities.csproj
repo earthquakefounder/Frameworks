@@ -50,8 +50,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Configurations\Identity\AppUserConfiguration.cs" />
+    <Compile Include="Contexts\BaseStorageContext.cs" />
     <Compile Include="Contexts\IStorageContext.cs" />
     <Compile Include="Contexts\StorageContext.cs" />
+    <Compile Include="Contexts\UserStorageContext.cs" />
     <Compile Include="Models\Identity\AppUser.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Settings\DatabaseConnections.cs" />
@@ -62,6 +64,12 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Extensions\Identity\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Infrastructure\Infrastructure.csproj">
+      <Project>{C12F2901-BDB9-4364-9BB3-6AF98A5255E7}</Project>
+      <Name>Infrastructure</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

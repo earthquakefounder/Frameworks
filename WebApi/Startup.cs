@@ -15,6 +15,7 @@ using FluentValidation;
 using FluentValidation.Mvc6;
 using WebApi.Domain.Factories;
 using WebApi.Domain.Extensions;
+using Entities.Models.Identity;
 
 namespace WebApi
 {
@@ -37,12 +38,6 @@ namespace WebApi
 
             builder.AddEnvironmentVariables();
             Configuration = builder.Build();
-
-            var x = new IdentityServer4.Configuration.IdentityServerOptions()
-            {
-                Endpoints = new IdentityServer4.Configuration.EndpointOptions
-            };
-
         }
 
         public IConfigurationRoot Configuration { get; }
@@ -50,18 +45,17 @@ namespace WebApi
         // This method gets called by the runtime. Use this method to add services to the container
         public void ConfigureServices(IServiceCollection services)
         {
-
             // Add framework services.
             services.AddApplicationInsightsTelemetry(Configuration);
-
-
-
+            
             services.AddTransient(provider => new DatabaseConnections()
             {
                 Database = Configuration.GetValue<string>("Connections:Database")
             })
             .AddTransient<IEncryptor, Encryptor>()
             .AddTransient(typeof(IStorageContext<>), typeof(StorageContext<>))
+            .AddTransient<IStorageContext<AppUser>, StorageContext<AppUser>>()
+            .AddTransient<UserStorageContext>()
             .AddTransient<IPasswordComplexity>(provider =>
                 new PasswordComplexity()
                     .MinimumLength(8)
@@ -71,11 +65,12 @@ namespace WebApi
                     .SpecialCharacters()
             )
             .AddTransient<IValidator<Features.Accounts.Models.RegisterUserModel>, Features.Accounts.Validations.RegisterUserModelValidation>();
-
+            
             services.AddMvc().AddFluentValidation(provider =>
             {
                 provider.ValidatorFactory = new ValidatorFactory(services.BuildServiceProvider());
             });
+            
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline

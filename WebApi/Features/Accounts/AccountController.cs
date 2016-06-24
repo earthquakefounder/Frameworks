@@ -14,8 +14,8 @@ namespace WebApi.Features.Accounts
     public class AccountController : BaseController
     {
         IEncryptor encryptor;
-        IStorageContext<AppUser> userStorage;
-        public AccountController(IEncryptor encryptor, IStorageContext<AppUser> userStorage)
+        UserStorageContext userStorage;
+        public AccountController(IEncryptor encryptor, UserStorageContext userStorage)
         {
             this.encryptor = encryptor;
             this.userStorage = userStorage;
@@ -32,18 +32,15 @@ namespace WebApi.Features.Accounts
 
             if (!string.IsNullOrWhiteSpace(user.UserName) && userStorage.Entities.Any(x => x.UserName == user.UserName.Trim()))
                 return BadRequest("The username has already been taken");
-
-            byte[] hash, salt;
-            hash = encryptor.Encrypt(user.Password, out salt);
-
+            
             var entity = userStorage.Add(new AppUser()
             {
                Email = user.EmailAddress,
                Name = user.Name,
-               PasswordHash = hash,
-               Salt = salt,
                UserName = string.IsNullOrWhiteSpace(user.UserName) ? null : user.UserName
             });
+
+            await userStorage.UpdatePasswordAsync(entity, user.Password);
 
             await userStorage.SaveChangesAsync();
 

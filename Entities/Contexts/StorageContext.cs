@@ -13,19 +13,19 @@ namespace Entities.Contexts
     {
         public StorageContext(DatabaseConnections settings) : base(settings.Database) { }
 
-        public virtual IDbSet<TEntity> DbSet { get; set; }
+        protected DbSet<TEntity> EntitySet { get { return Set<TEntity>(); } }
 
-        public virtual IQueryable<TEntity> Entities { get { return DbSet; } }
+        public virtual IQueryable<TEntity> Entities { get { return EntitySet; } }
 
-        public TEntity Add(TEntity entity)
+        public virtual TEntity Add(TEntity entity)
         {
-            DbSet.Add(entity);
+            EntitySet.Add(entity);
             return entity;
         }
 
-        public void Delete(TEntity entity)
+        public virtual void Delete(TEntity entity)
         {
-            DbSet.Remove(entity);
+            EntitySet.Remove(entity);
         }
     }
 }

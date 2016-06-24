@@ -1,4 +1,5 @@
-﻿using Entities.Models.Identity;
+﻿using Entities.Contexts;
+using Entities.Models.Identity;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations.Schema;
@@ -10,10 +11,12 @@ using System.Threading.Tasks;
 
 namespace Entities.Configurations.Identity
 {
-    public class AppUserConfiguration : EntityTypeConfiguration<AppUser>
+    internal class AppUserConfiguration : EntityTypeConfiguration<_AppUser>
     {
         public AppUserConfiguration()
         {
+            ToTable("AppUser");
+
             HasKey(x => x.ID);
            
             Property(x => x.Email)
