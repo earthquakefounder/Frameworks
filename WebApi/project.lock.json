@@ -1719,7 +1719,7 @@
       ]
     },
     "FluentValidation.Mvc6/1.0.0-rc2-20160608": {
-      "sha512": "x0qeeLl9vHbViw9KHyPOfh3B93aO74vPnlrV/I/6TkKEgQ6oqvmc67U1rSw5xsE0ijE6hZoZn6ofnaiSemZQfg==",
+      "sha512": "xD4bStdnnT+r6Mt8rTSxlkcsuFPxfQVrb+2PcsDlERn9eY4DC3rbOCyMLZ50R9Ds0SNcquNrfEap/GYsGi7QAw==",
       "type": "package",
       "files": [
         "FluentValidation.Mvc6.1.0.0-rc2-20160608.nupkg.sha512",

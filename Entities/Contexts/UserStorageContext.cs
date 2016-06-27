@@ -76,18 +76,18 @@ namespace Entities.Contexts
             return new ValidationResult<UpdatePasswordFailure>();
         }
 
-        public async Task<ValidationResult<ChangePasswordResult>> AuthenticateAsync(string username, string password)
+        public async Task<ValidationResult<Guid, ChangePasswordResult>> AuthenticateAsync(string username, string password)
         {
             var user = await Users.FirstOrDefaultAsync(x => x.Email == username);
 
             if (user == null)
-                return new ValidationResult<ChangePasswordResult>(ChangePasswordResult.InvalidCredentials);
+                return new ValidationResult<Guid, ChangePasswordResult>(ChangePasswordResult.InvalidCredentials);
 
             bool matched = _encryptor.Compare(password, user.PasswordHash, user.Salt);
 
             return !matched
-                ? new ValidationResult<ChangePasswordResult>(ChangePasswordResult.InvalidCredentials)
-                : new ValidationResult<ChangePasswordResult>();
+                ? new ValidationResult<Guid, ChangePasswordResult>(ChangePasswordResult.InvalidCredentials)
+                : new ValidationResult<Guid, ChangePasswordResult>(user.ID.Value);
         }
     }
 

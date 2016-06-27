@@ -47,4 +47,19 @@ namespace Infrastructure.Results
             return result.Failure;
         }
     }
+
+    public class ValidationResult<TSuccess, TFailure> : ValidationResult<TFailure>
+        where TSuccess : struct
+        where TFailure : struct
+    {
+        public ValidationResult() : base() { }
+        public ValidationResult(TSuccess value) : base()
+        {
+            Value = value;
+        }
+        public ValidationResult(TFailure failure) : base(failure) { }
+        public ValidationResult(TFailure failure, string error) : base(failure, error) { }
+
+        public TSuccess Value { get; private set; }
+    }
 }
