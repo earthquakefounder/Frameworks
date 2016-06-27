@@ -1,6 +1,7 @@
 ﻿using Entities.Contexts;
 using Entities.Models.Identity;
 using Infrastructure.Encryption;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -21,6 +22,7 @@ namespace WebApi.Features.Accounts
             this.userStorage = userStorage;
         }
 
+        [AllowAnonymous]
         [Route("register")]
         public async Task<IActionResult> Register(RegisterUserModel user)
         {

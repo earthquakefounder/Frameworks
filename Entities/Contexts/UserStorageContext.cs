@@ -12,7 +12,7 @@ using System.Threading.Tasks;
 
 namespace Entities.Contexts
 {
-    public class UserStorageContext : BaseStorageContext, IStorageContext<AppUser>
+    public class UserStorageContext : BaseStorageContext<AppUser>
     {
         IPasswordComplexity _passwordComplexity;
         IEncryptor _encryptor;
@@ -29,7 +29,7 @@ namespace Entities.Contexts
 
         private DbSet<_AppUser> Users => Set<_AppUser>();
 
-        public IQueryable<AppUser> Entities => 
+        public override IQueryable<AppUser> Entities => 
             Users.Select(user => new AppUser()
                 {
                     Email = user.Email,
@@ -38,7 +38,7 @@ namespace Entities.Contexts
                     UserName = user.UserName
                 });
 
-        public AppUser Add(AppUser user)
+        public override AppUser Add(AppUser user)
         {
             var _user = new _AppUser()
             {
@@ -53,7 +53,7 @@ namespace Entities.Contexts
             return _user;
         }
 
-        public void Delete(AppUser user) => Users.Remove(new _AppUser() { ID = user.ID });
+        public override void Delete(AppUser user) => Users.Remove(new _AppUser() { ID = user.ID });
 
         public async Task<ValidationResult<UpdatePasswordFailure>> UpdatePasswordAsync(AppUser user, string password) => await UpdatePasswordAsync(user.ID.Value, password);
 

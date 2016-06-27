@@ -47,7 +47,7 @@ namespace Infrastructure.Encryption
 
         private byte[] EncryptWithSalt(string value, byte[] salt)
         {
-            using (var encrypted = new Rfc2898DeriveBytes(value, salt))
+            using (var encrypted = new Rfc2898DeriveBytes(value, salt, _iterations))
             {
                 return encrypted.GetBytes(_keyLength);
             }

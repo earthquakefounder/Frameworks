@@ -8,22 +8,22 @@ using System.Threading.Tasks;
 
 namespace Entities.Contexts
 {
-    public class StorageContext<TEntity> : DbContext, IStorageContext<TEntity>
+    public class StorageContext<TEntity> : BaseStorageContext<TEntity>
         where TEntity: class
     {
         public StorageContext(DatabaseConnections settings) : base(settings.Database) { }
 
         protected DbSet<TEntity> EntitySet { get { return Set<TEntity>(); } }
 
-        public virtual IQueryable<TEntity> Entities { get { return EntitySet; } }
+        public override IQueryable<TEntity> Entities { get { return EntitySet; } }
 
-        public virtual TEntity Add(TEntity entity)
+        public override TEntity Add(TEntity entity)
         {
             EntitySet.Add(entity);
             return entity;
         }
 
-        public virtual void Delete(TEntity entity)
+        public override void Delete(TEntity entity)
         {
             EntitySet.Remove(entity);
         }
